@@ -1,0 +1,26 @@
+﻿namespace SpiritualAdviceAlexaSkill.Infrastructure.Enumeration;
+public enum Arcanum : byte
+{
+    The_Magician = 1,
+    The_Popess,
+    The_Empress,
+    The_Emperor,
+    The_Pope,
+    The_Lovers,
+    The_Chariot,
+    Justice,
+    The_Hermit,
+    The_Wheel_of_Fortune,
+    Strength,
+    The_Hanged_Man,
+    Death,
+    Temperance,
+    The_Devil,
+    The_Tower,
+    The_Star,
+    The_Moon,
+    The_Sun,
+    Judgement,
+    The_World,
+    The_Fool,
+}
