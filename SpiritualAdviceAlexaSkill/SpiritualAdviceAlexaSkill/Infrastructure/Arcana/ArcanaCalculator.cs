@@ -16,18 +16,18 @@ public class ArcanaCalculator : IArcanaCalculator
     private ArcanaDailyCalculatorResult CalculateArcanum(DateOnly date)
     {
         string today = date.ToString("ddMMyyyy");
-        int squashedResult = SquashNumeric(today, 22);
-        Arcanum arcanum = (Arcanum)squashedResult;
+        byte squashedResult = SquashNumeric(today, ArcanumSet.Count());
+        Arcane arcane = ArcanumSet.GetByHouse(squashedResult);
 
-        return new ArcanaDailyCalculatorResult(arcanum, date);
+        return new ArcanaDailyCalculatorResult(arcane.Arcanum, date, arcane.GetSpeech());
     }
 
-    private int SquashNumeric(string value, int resultLimit, byte digitLimit = 2)
+    private byte SquashNumeric(string value, int resultLimit, byte digitLimit = 2)
     {
-        int accumulator = 0;
-        for (int i = 0; i < value.Length; i++)
+        byte accumulator = 0;
+        for (byte i = 0; i < value.Length; i++)
         {
-            accumulator += int.Parse(value[i].ToString());
+            accumulator += byte.Parse(value[i].ToString());
         }
 
         if (accumulator > resultLimit || accumulator.ToString().Length > digitLimit)
