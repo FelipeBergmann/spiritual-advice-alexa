@@ -4,11 +4,15 @@ using SpiritualAdviceAlexaSkill.Infrastructure.Enumeration;
 namespace SpiritualAdviceAlexaSkill.Infrastructure.Arcana.Factories;
 public static class ArcaneFactory
 {
-    public static Arcane CreateArcane(Arcanum arcanum, params string[] speach)
+    public static Arcane CreateArcane(Arcanum arcanum, string fileName, params string[] speach)
     {
-        return new Arcane(arcanum, (byte)arcanum, new List<string>()
+        var arcane = new Arcane(arcanum, (byte)arcanum, fileName, 0);
+
+        if(speach?.Length > 0)
         {
-            "01-Mage-advice-01-converted.mp3"
-        });
+            arcane.Speaches.AddRange(speach);
+        }
+
+        return arcane;        
     }
 }

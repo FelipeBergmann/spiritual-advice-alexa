@@ -27,7 +27,7 @@ public class Function
         IArcanaCalculator _arcanaCalculator = new ArcanaCalculator(_dateProvider);
 
         var todaysArcana = _arcanaCalculator.TodaysArcanum();
-        var preSignedUrl = getPreSignedUrl(todaysArcana.Speech);
+        var preSignedUrl = getPreSignedUrl(todaysArcana.AudioFileName);
 
         var ssmlBuilder = new SsmlBuilder();
         ssmlBuilder.AddAudio(preSignedUrl);
