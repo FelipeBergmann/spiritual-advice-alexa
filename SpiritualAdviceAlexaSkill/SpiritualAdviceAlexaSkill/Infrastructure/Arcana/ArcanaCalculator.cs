@@ -19,7 +19,7 @@ public class ArcanaCalculator : IArcanaCalculator
         string today = date.ToString("ddMMyyyy");
         byte squashedResult = SquashNumeric(today, ArcanumSet.Count());
         Arcane arcane = ArcanumSet.GetByHouse(squashedResult);
-        string audioFileName = $"{arcane.FileName}_{date.DayOfYear.IsFirstDivisibleBy(3)}";
+        string audioFileName = $"{arcane.FileName}_{date.DayOfYear.IsFirstDivisibleBy(3)}.mp3";
         
         return new ArcanaDailyCalculatorResult(arcane.Arcanum, date, audioFileName);
     }
